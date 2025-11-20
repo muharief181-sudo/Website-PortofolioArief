@@ -1,0 +1,647 @@
+/****************************************************************
+ * FILE: style.css
+ * DESKRIPSI: Styling untuk Portofolio Muh. Arief Ramadhann
+ * TEMA: Network & Tech (Modern, Clean, Blue/Cyan Accent)
+ ***************************************************************/
+
+/* ----------------------------------------------------------------
+ * 1. VARIABEL & GLOBAL RESET
+ * ---------------------------------------------------------------- */
+
+:root {
+    /* Palet Warna Utama */
+    --color-primary: #007bff;        /* Biru Primer (Dark Blue) */
+    --color-accent: #00bcd4;         /* Cyan/Turquoise (Aksen Teknis) */
+    --color-text: #212529;           /* Hampir Hitam */
+    --color-secondary-text: #6c757d; /* Abu-abu Sekunder */
+    --color-success: #28a745;        /* Hijau untuk badge success */
+    --color-white: #ffffff;
+    --color-light-bg: #f4f6f9;       /* Background Sangat Terang */
+    --color-section-bg: #f1f7fe;     /* Background Area Proyek/TI */
+
+    /* Gradien */
+    --gradient-hero: linear-gradient(135deg, var(--color-primary) 0%, #0056b3 100%);
+
+    /* Shadows */
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.1);
+    --shadow-heavy: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-light-bg);
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Typography & Links */
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s, transform 0.2s;
+}
+
+a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 0.8em;
+    line-height: 1.2;
+    color: var(--color-text);
+}
+
+/* Icon Styling Global */
+.section h2 i, .hero h1 i {
+    margin-right: 10px;
+    color: var(--color-accent);
+}
+
+/* ----------------------------------------------------------------
+ * 2. HERO SECTION (HEADER UTAMA)
+ * ---------------------------------------------------------------- */
+
+.hero {
+    background: var(--gradient-hero);
+    padding: 80px 0;
+    color: var(--color-white);
+    overflow: hidden;
+}
+
+.hero-content-grid {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    /* Efek Glassmorphism untuk kontainer */
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-text {
+    flex: 2;
+}
+
+.hero-text h1 {
+    font-size: 3.5em;
+    font-weight: 900;
+    color: var(--color-white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.company-tag {
+    color: #e9ecef;
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: 5px;
+    color: #e9ecef;
+}
+
+.tagline {
+    color: #e9ecef;
+    font-weight: 500;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 8px var(--color-accent), var(--shadow-heavy);
+    transition: transform 0.5s;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Button Styling (Reusable) */
+.hero-actions {
+    margin-top: 30px;
+}
+
+.hero-actions .button, .section .button {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.button.primary {
+    background-color: #ffc107; /* Kuning Cerah */
+    color: var(--color-text); 
+    border: 2px solid #ffc107;
+    box-shadow: 0 4px 6px rgba(255, 193, 7, 0.3);
+}
+
+.button.primary:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(255, 193, 7, 0.5);
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-accent);
+}
+
+.button.secondary:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+    transform: translateY(-3px);
+}
+
+
+/* ----------------------------------------------------------------
+ * 3. BAGIAN UTAMA (ABOUT, EDUCATION, CERTIFICATES)
+ * ---------------------------------------------------------------- */
+
+.section {
+    padding: 80px 0;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 50px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    border-bottom: 3px solid var(--color-accent);
+    padding-bottom: 10px;
+    margin: 0 auto 50px;
+    display: block;
+    width: fit-content;
+}
+
+/* --- 3.1. About Section --- */
+.about {
+    background-color: var(--color-white);
+}
+
+.about-content {
+    display: flex;
+    gap: 60px;
+    align-items: stretch;
+}
+
+.about-content > div {
+    flex: 3;
+    font-size: 1.1em;
+}
+
+.skills {
+    flex: 1;
+    background-color: var(--color-light-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    border-left: 5px solid var(--color-accent);
+}
+
+.skills h3 {
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+.skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 8px 15px;
+    margin: 8px 8px 8px 0;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s;
+    white-space: nowrap; 
+}
+
+/* Warna spesifik untuk skill tags */
+.skill-tag.fo { background: #00bcd4; color: var(--color-white); } /* Fiber Optik */
+.skill-tag.net { background: #6a89cc; color: var(--color-white); } /* Network */
+.skill-tag.k3 { background: #ff7675; color: var(--color-white); } /* K3 */
+
+.skill-tag:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.highlight-text {
+    background-color: #fcebeb;
+    border-left: 5px solid #ff7675;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+    font-style: italic;
+    box-shadow: inset 0 0 10px rgba(255, 118, 117, 0.1);
+}
+
+/* --- 3.2. Education Section --- */
+.education {
+    background-color: var(--color-light-bg);
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.school-item {
+    background: var(--color-white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+    border-bottom: 5px solid var(--color-primary);
+    transition: all 0.3s;
+}
+
+.school-item:hover {
+    background-color: #e9f5ff;
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.school-item h4 {
+    color: var(--color-text);
+    font-weight: 800;
+    margin-bottom: 5px;
+    font-size: 1.3em;
+}
+
+.school-item .level {
+    color: var(--color-secondary-text);
+    font-size: 0.95em;
+    font-style: italic;
+}
+
+
+/* --- 3.3. Certification Section --- */
+.certificates {
+    background-color: var(--color-white);
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.cert-item {
+    background: var(--color-light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+    border-left: 8px solid var(--color-secondary-text);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cert-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cert-item h4 {
+    color: var(--color-primary);
+    font-weight: 800;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.cert-item.fo-cert { border-left-color: #00bcd4; }
+.cert-item.k3-cert { border-left-color: #ff7675; }
+
+
+/* ----------------------------------------------------------------
+ * 4. IMPLEMENTASI TEKNOLOGI INFORMASI
+ * ---------------------------------------------------------------- */
+
+.projects {
+    background-color: var(--color-section-bg);
+}
+
+.project-box {
+    background: var(--color-white);
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid #eee;
+    transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.project-box:hover {
+    box-shadow: 0 0 0 1px var(--color-accent), var(--shadow-heavy);
+    transform: translateY(-2px);
+}
+
+/* Border Aksen Box TI */
+.fo-splicing-box {
+    border-left: 8px solid #00bcd4;
+}
+
+.net-sec-box {
+    border-left: 8px solid var(--color-primary);
+}
+
+.project-box h3 {
+    font-size: 1.8em;
+    font-weight: 900;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.tech-stack-new {
+    font-size: 1em;
+    color: #495057;
+    display: block;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+    font-weight: 600;
+}
+
+.project-link-new {
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-left: 15px;
+    white-space: nowrap;
+    text-decoration: underline;
+}
+
+.project-link-new:hover {
+    color: var(--color-primary);
+}
+
+.badge {
+    background-color: var(--color-secondary-text);
+    color: var(--color-white);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 800;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+
+.badge.success {
+    background-color: var(--color-success);
+    margin-left: 15px;
+}
+
+
+/* ----------------------------------------------------------------
+ * 5. POJOK BACA
+ * ---------------------------------------------------------------- */
+
+.reading-corner {
+    background-color: var(--color-white);
+    text-align: center;
+}
+
+.book-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.book-item {
+    background: var(--color-light-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-heavy);
+    width: 45%;
+    border-top: 5px solid var(--color-accent);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.book-item h4 {
+    color: var(--color-primary);
+    font-weight: 800;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+
+/* ----------------------------------------------------------------
+ * 6. CONTACT SECTION (HIGH IMPACT)
+ * ---------------------------------------------------------------- */
+
+.contact-quick {
+    background: var(--gradient-hero);
+    color: var(--color-white);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.contact-quick h2 {
+    color: var(--color-white);
+    margin-bottom: 15px;
+    border-bottom: 3px solid var(--color-accent);
+    font-weight: 900;
+}
+
+.tagline-contact {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    opacity: 0.95;
+    font-weight: 600;
+}
+
+.contact-buttons .button {
+    padding: 18px 35px;
+    font-size: 1.2em;
+    font-weight: 800;
+    margin: 10px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.button.contact-wa {
+    background-color: #25d366; 
+    color: var(--color-white);
+    border: none;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+}
+
+.button.contact-wa:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
+}
+
+.button.contact-email {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border: none;
+}
+
+.button.contact-email:hover {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    transform: scale(1.05);
+}
+
+/* ----------------------------------------------------------------
+ * 7. FOOTER
+ * ---------------------------------------------------------------- */
+
+footer {
+    background-color: #1a1a1a;
+    color: #adb5bd;
+    padding: 25px 0;
+    font-size: 0.95em;
+    text-align: center;
+}
+
+footer a {
+    color: #adb5bd;
+    margin: 0 8px;
+}
+
+footer a:hover {
+    color: var(--color-accent);
+}
+
+/* ----------------------------------------------------------------
+ * 8. MEDIA QUERIES (RESPONSIVENESS)
+ * ---------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+    .hero-content-grid {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .hero-image {
+        order: -1;
+        margin-bottom: 20px;
+    }
+    
+    .hero-image img {
+        max-width: 200px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .skills {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 50px 0;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5em;
+    }
+    
+    .subtitle {
+        font-size: 1.1em;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+    
+    .section h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    
+    .book-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .book-item {
+        width: 100%;
+    }
+
+    .education-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .hero-actions .button {
+        display: block;
+        margin: 10px auto;
+        width: 90%;
+        text-align: center;
+    }
+    
+    .contact-buttons .button {
+        display: block;
+        width: 90%;
+        margin: 10px auto;
+    }
+    
+    .project-box {
+        padding: 20px;
+    }
+    
+    .project-box h3 {
+        font-size: 1.3em;
+    }
+
+    .project-box h3 .badge {
+        margin-top: 10px;
+        margin-left: 0;
+        display: block; 
+    }
+}
